@@ -76,6 +76,19 @@ ex: multiple composes but from different CSS modules.
     composes: classnamegoeshere from "./filepathToCSSModule";
 }
 
+- CSS modules still support global CSS classes, but they have to be explicitly denoted with the :global() tag:
+
+ex:
+
+:global(.myGlobalHeader) {
+    some CSS goes here....
+}
+
+note: once the CSS class is defined as global, it will be used like any other CSS class. So in the react component file, as long as the 
+actual CSS module gets imported, you can just set the className to be the global variable class.
+
+<div className="myGlobalHeader"> something</div>
+
 # some quirks I learned from using CSS modules: 
 
 - you ARE allowed to import multiple different CSS modules into the same component. 
@@ -92,3 +105,4 @@ the div.
 
 - Remember that you can use/compose different classes from separate CSS modules, but each class from an external module requires it's own 
 "composes" attribute at the beginning.
+
